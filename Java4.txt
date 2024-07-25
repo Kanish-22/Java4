@@ -1,0 +1,36 @@
+
+package javaapplication25;
+
+import java.util.*;
+public class JavaApplication25 {
+public static char[] alphabets(int[] ip)
+{
+    int N=ip.length;
+    char[] op=new char[N];
+    int[] sortedip=Arrays.copyOf(ip,N);
+    Arrays.sort(sortedip);
+    Map<Integer,Integer> index=new HashMap<>();
+    for(int i=0;i<N;i++)
+    {
+        index.put(sortedip[i], i);
+    }
+    for(int i=0;i<N;i++)
+    {
+        int pos=index.get(ip[i]);
+        op[i]=(char)('a'+pos);
+    }
+    return op;
+}
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();
+        int[] ip=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            ip[i]=in.nextInt();
+        }
+        char[] op= alphabets(ip);
+        System.out.println(Arrays.toString(op));
+    }
+    
+}
